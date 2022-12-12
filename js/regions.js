@@ -1,4 +1,27 @@
-const regions = [{
+const regions = [
+	{
+		"name": "Singapore",
+		"full_name": "Asia Pacific (Singapore)",
+		"code": "ap-southeast-1",
+		"public": true,
+		"zones": [
+			"ap-southeast-1a",
+			"ap-southeast-1b",
+			"ap-southeast-1c"
+		]
+	},	
+	{
+		"name": "Hong Kong",
+		"full_name": "Asia Pacific (Hong Kong)",
+		"code": "ap-east-1",
+		"public": true,
+		"zones": [
+			"ap-east-1a",
+			"ap-east-1b",
+			"ap-east-1c"
+		]
+	},
+	{
 		"name": "N. Virginia",
 		"full_name": "US East (N. Virginia)",
 		"code": "us-east-1",
@@ -168,17 +191,6 @@ const regions = [{
 		]
 	},
 	{
-		"name": "Singapore",
-		"full_name": "Asia Pacific (Singapore)",
-		"code": "ap-southeast-1",
-		"public": true,
-		"zones": [
-			"ap-southeast-1a",
-			"ap-southeast-1b",
-			"ap-southeast-1c"
-		]
-	},
-	{
 		"name": "Sydney",
 		"full_name": "Asia Pacific (Sydney)",
 		"code": "ap-southeast-2",
@@ -187,17 +199,6 @@ const regions = [{
 			"ap-southeast-2a",
 			"ap-southeast-2b",
 			"ap-southeast-2c"
-		]
-	},
-	{
-		"name": "Hong Kong",
-		"full_name": "Asia Pacific (Hong Kong)",
-		"code": "ap-east-1",
-		"public": true,
-		"zones": [
-			"ap-east-1a",
-			"ap-east-1b",
-			"ap-east-1c"
 		]
 	},
 	{
