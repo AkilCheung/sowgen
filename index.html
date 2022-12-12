@@ -1,0 +1,391 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/regions.js"></script>
+    <script src="js/main.js"></script>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        ul li:before {
+            content: '- ';
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Proposal Generator Beta v1</h1>
+        <p>Last update: 2022/08/24</p>
+        <h3>Regions</h3>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm"><select id="ddRegions"></select></div>
+            </div>
+        </div>
+        <form id="compForm">
+            <h3>Required Components</h3>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Network
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbBasicEnv" value="basic_env" />
+                                        <label class="form-cb-env-label" for="cbBasicEnv">
+                                            Basic Environment
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbBasicNetwork" value="basic_network" />
+                                        <label class="form-cb-nextwork-label" for="cbBasicNetwork">
+                                            Basic Network
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbVPN" value="vpn" />
+                                        <label class="form-cb-vpn-label" for="cbVPN">
+                                            VPN
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbDirectConnect" value="direct_connect" />
+                                        <label class="form-cb-dx-label" for="cbDirectConnect">
+                                            Direct Connect
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbCDN" value="cdn" />
+                                        <label class="form-cb-cdn-label" for="cbCDN">
+                                            CloudFront
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbWAF" value="waf" />
+                                        <label class="form-cb-waf-label" for="cbWAF">
+                                            WAF
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Migration
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbVMexport" value="vm_export" />
+                                        <label class="form-cb-export-label" for="cbVMexport">
+                                            VM Export/Import
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbCloudEndure" value="cloudendure" />
+                                        <label class="form-cb-cloudendure-label" for="cbCloudEndure">
+                                            CloudEndure
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbCloudEndureDR" value="cloudendure_dr" />
+                                        <label class="form-cb-cloudendure-dr-label" for="cbCloudEndureDR">
+                                            CloudEndure DR
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbDMS" value="dms" />
+                                        <label class="form-cb-dms-label" for="cbDMS">
+                                            Database Migration Service
+                                        </label>
+                                        <br />
+                                        <div class="d-none" id="hideForcbDMS">
+                                            <label>Source Engine</label>
+                                            <select class="form-select" id="dmsSrc">
+                                            </select>
+                                            <br />
+                                            <label>Destination Engine</label>
+                                            <select class="form-select" id="dmsDest">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+
+                                    </div>
+                                    <div class="col-sm">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Computing
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbComp" value="comp_res" />
+                                        <label class="form-cb-comp-label" for="cbComp">
+                                            Compute Resource
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbALB" value="app_alb" />
+                                        <label class="form-cb-alb-label" for="cbALB">
+                                            Application with ALB
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbAutoscale" value="autoscale" />
+                                        <label class="form-cb-autoscale-label" for="cbAutoscale">
+                                            Auto Scaling
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbEKS" value="eks" />
+                                        <label class="form-cb-eks-label" for="cbEKS">
+                                            EKS with EC2
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbEKSFagrate" value="eks-fargate" />
+                                        <label class="form-cb-eks-fargate-label" for="cbEKSFagrate">
+                                            EKS with Fargate
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbECS" value="ecs" />
+                                        <label class="form-cb-ecs-label" for="cbECS">
+                                            ECS with EC2
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbECSFargate" value="ecs-fargate" />
+                                        <label class="form-cb-ecs-fargate-label" for="cbECSFargate">
+                                            ECS with Fargate
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbECR" value="ecr" />
+                                        <label class="form-cb-ecr-label" for="cbECR">
+                                            ECR
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbSQS" value="SQS" />
+                                        <label class="form-cb-sqs-label" for="cbSQS">
+                                            SQS
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbMSK" value="msk" />
+                                        <label class="form-cb-msk-label" for="cbMSK">
+                                            Managed Streaming for Apache Kafka
+                                        </label>
+                                    </div>
+                                    <div class="col-sm"></div>
+                                    <div class="col-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Storage
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbS3" value="s3" />
+                                        <label class="form-cb-s3-label" for="cbS3">
+                                            S3
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbRDS" value="rds_multi_az" />
+                                        <label class="form-cb-rds-label" for="cbRDS">
+                                            RDS with MultiAZ
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbRDSNoAZ" value="rds" />
+                                        <label class="form-cb-rdsNoAZ-label" for="cbRDSNoAZ">
+                                            RDS without MultiAZ
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbAurora" value="aurora_rep" />
+                                        <label class="form-cb-aurora-label" for="cbAurora">
+                                            Aurora with Replica
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbAuroraNoRep" value="aurora" />
+                                        <label class="form-cb-auroraNoRep-label" for="cbAuroraNoRep">
+                                            Aurora without Replica
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbEFS" value="efs" />
+                                        <label class="form-cb-efs-label" for="cbEFS">
+                                            EFS
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbGWFile" value="gw_file" />
+                                        <label class="form-cb-gwfile-label" for="cbGWFile">
+                                            Storage Gateway - File
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbGWTap" value="gw_tap" />
+                                        <label class="form-cb-gwtap-label" for="cbGWTap">
+                                            Storage Gateway - Tape
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbGWVol" value="gw_volume" />
+                                        <label class="form-cb-gwvol-label" for="cbGWVol">
+                                            Storage Gateway - Volume
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbRedis" value="redis" />
+                                        <label class="form-cb-redis-label" for="cbRedis">
+                                            Elastic Cache for Redis
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbRedisAZ" value="redis_multi_az" />
+                                        <label class="form-cb-redis-az-label" for="cbRedisAZ">
+                                            Elastic Cache for Redis with Multi-AZ
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Documentation
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbDoc" value="doc" />
+                                        <label class="form-cb-doc-label" for="cbDoc">
+                                            Documentation
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbInfraDoc" value="doc_infra" />
+                                        <label class="form-cb-infraDoc-label" for="cbInfraDoc">
+                                            System infrastructure documentation
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbStressDoc" value="doc_stress" />
+                                        <label class="form-cb-stressDoc-label" for="cbStressDoc">
+                                            Stress test report and results analysis
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Workspaces
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbWSSimpleAD" value="ws_simple_ad" />
+                                        <label class="form-cb-wssad-label" for="cbWSSimpleAD">
+                                            Workspaces - Simple AD
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbWSManagedAD" value="ws_managed_ad" />
+                                        <label class="form-cb-wsmad-label" for="cbWSManagedAD">
+                                            Workspaces - Managed AD
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <input type="checkbox" id="cbWSADConnector" value="ws_ad_connector" />
+                                        <label class="form-cb-wsadconnector-label" for="cbWSADConnector">
+                                            Workspaces - AD Connector
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="btnGenerate" type="button" class="btn btn-outline-primary">Generate</button>
+                <button type="button" class="btn btn-outline-secondary">Reset</button>
+            </div>
+        </form>
+        <div id="output">
+
+        </div>
+    </div>
+</body>
+
+</html>
