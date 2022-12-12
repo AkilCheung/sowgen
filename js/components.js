@@ -50,10 +50,10 @@ components['name'].sowHandler = () => {}; //optional
 components['name'].assumptionsHandler = () => {}; //optional
 */
 
-//computing resource
+//EC2
 components['comp_res'] = {};
 components['comp_res'].assumptions = [];
-components['comp_res'].sowHeader = 'AWS compute resources provisioning';
+components['comp_res'].sowHeader = 'AWS EC2 provisioning';
 components['comp_res'].sow = [
     'N x Production EC2',
     'N x Bastion Host EC2',
