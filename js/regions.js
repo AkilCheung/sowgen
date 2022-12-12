@@ -254,5 +254,16 @@ const regions = [{
 			"cn-northwest-1b",
 			"cn-northwest-1c"
 		]
+	},
+	{
+		"name": "Jakarta",
+		"full_name": "Asia Pacific (Jakarta)",
+		"code": "ap-southeast-3",
+		"public": true,
+		"zones": [
+			"ap-southeast-3a",
+			"ap-southeast-3b",
+			"ap-southeast-3c"
+		]
 	}
 ];
