@@ -8,8 +8,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/components.js"></script>
     <script src="js/regions.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <script src="js/main.js"></script>
     <style>
+        table {
+            width: 100%;
+        }
+
         ul {
             list-style: none;
         }
@@ -383,7 +388,7 @@
             </div>
         </form>
         <div id="output">
-
+            <table id="outputTable"></table>
         </div>
     </div>
 </body>

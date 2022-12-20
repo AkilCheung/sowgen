@@ -23,6 +23,14 @@ $(document).ready(() => {
         }
     });
 
+    const generateExcelFunction = (e) => {
+        console.log(e);
+         /* Create worksheet from HTML DOM TABLE */
+        var wb = XLSX.utils.table_to_book(document.getElementById('outputTable'));
+        /* Export to file (start a download) */
+        XLSX.writeFile(wb, 'GeneratedSOWTable.xlsx');
+    }
+
     $('#btnGenerate').click(e => {
         //prepare the selected components
         var selectedComponents = [];
@@ -37,14 +45,15 @@ $(document).ready(() => {
         var sowContent = '';
         var customerRespContent = '';
         var oosContent = '';
+        var outputElement = $('#output');
+        var outputTable = $('#outputTable');
 
-        oosContent = '<ul>';
         generalOOS.forEach(oosStr => {
-            oosContent = oosContent.concat('<li>' + oosStr + '</li>');
+            oosContent = oosContent.concat('<tr><td>' + oosStr + '</td></tr>');
         })
 
-        assumptionContent = '<ul>';
-        customerRespContent = '<ul>';
+        // assumptionContent = '<ul>';
+        // customerRespContent = '<ul>';
 
 
         selectedComponents.forEach(str => {
@@ -74,50 +83,60 @@ $(document).ready(() => {
         selectedComponents.forEach(str => {
 
             components[str].assumptions.forEach(assStr => {
-                assumptionContent = assumptionContent.concat('<li>' + assStr + '</li>');
+                assumptionContent = assumptionContent.concat('<tr><td>' + assStr + '</td></tr>');
             });
 
             if (components[str].sowHeader != null) {
-                sowContent = sowContent.concat('<p><strong>' + components[str].sowHeader + '</strong><br/>');
-                sowContent += '<ul>';
+                // sowContent = sowContent.concat('<p><strong>' + components[str].sowHeader + '</strong><br/>');
+                // sowContent += '<ul>';
+                sowContent = sowContent.concat('<tr><td><strong>' + components[str].sowHeader + '</strong></td></tr>');
                 components[str].sow.forEach(sowStr => {
-                    sowContent = sowContent.concat('<li>' + sowStr + '</li>');
+                    sowContent = sowContent.concat('<tr><td>' + sowStr + '</td></tr>');
                 })
-                sowContent += '</ul>';
-                sowContent = sowContent.concat('</p>');
+                // sowContent += '</ul>';
+                // sowContent = sowContent.concat('</p>');
             }
 
 
             components[str].customerResp.forEach(respStr => {
-                customerRespContent = customerRespContent.concat('<li>' + respStr + '</li>');
+                customerRespContent = customerRespContent.concat('<tr><td>' + respStr + '</td></tr>');
             });
 
             components[str].oos.forEach(oosStr => {
-                oosContent = oosContent.concat('<li>' + oosStr + '</li>');
+                oosContent = oosContent.concat('<tr><td>' + oosStr + '</td></tr>');
             });
         });
-        customerRespContent += '</ul>';
-        assumptionContent += '</ul>';
-        oosContent += '</ul>';
+        // customerRespContent += '</ul>';
+        // assumptionContent += '</ul>';
 
-        $('#output').empty();
+        outputElement.empty();
+        outputTable.empty();
 
         //region str
         const regionAssumption = '<li>' + $('#ddRegions').val() + ' region will be used </li>';
-        $('#output').append('<h2>Assumption</h2>');
+        console.log($('#output table').length > 0)
+        outputTable.append('<tr><td>Assumption</td></tr>');
         //$('#output').append('<p>' + regionAssumption + assumptionContent + '</p>');
 
         var obj = $($.parseHTML(assumptionContent));
-        obj.prepend(regionAssumption);
-        $('#output').append(obj);
+        console.log(obj)
+        // obj.prepend(regionAssumption);
+        outputTable.append(obj);
 
-        $('#output').append('<h2>SOW</h2>');
-        $('#output').append(sowContent);
+        outputTable.append('<tr><td><h2>SOW</h2></td></tr>');
+        outputTable.append(sowContent);
 
-        $('#output').append('<h2>Customer Responsibility</h2>');
-        $('#output').append('<p>' + customerRespContent + '</p>');
+        outputTable.append('<tr><td><h2>Customer Responsibility</h2></td></tr>');
+        outputTable.append(customerRespContent);
 
-        $('#output').append('<h2>Out of Scope</h2>');
-        $('#output').append('<p>' + oosContent + '</p>');
+        outputTable.append('<tr><td><h2>Out of Scope</h2></td></tr>');
+        outputTable.append(oosContent);
+
+        outputElement.append(outputTable);
+
+        const excelButton = $('<button>');
+        excelButton.addClass('btn btn-outline-primary').attr('id', 'excelButton').text('Generate Excel');
+        excelButton.click(generateExcelFunction);
+        outputElement.append(excelButton);
     });
 });
