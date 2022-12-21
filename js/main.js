@@ -89,7 +89,7 @@ $(document).ready(() => {
             if (components[str].sowHeader != null) {
                 // sowContent = sowContent.concat('<p><strong>' + components[str].sowHeader + '</strong><br/>');
                 // sowContent += '<ul>';
-                sowContent = sowContent.concat('<tr><td><strong>' + components[str].sowHeader + '</strong></td></tr>');
+                sowContent = sowContent.concat('<tr><td><b>' + components[str].sowHeader + '</b></td></tr>');
                 components[str].sow.forEach(sowStr => {
                     sowContent = sowContent.concat('<tr><td>' + sowStr + '</td></tr>');
                 })
@@ -126,10 +126,10 @@ $(document).ready(() => {
         outputTable.append('<tr><td><h2>SOW</h2></td></tr>');
         outputTable.append(sowContent);
 
-        outputTable.append('<tr><td><h2>Customer Responsibility</h2></td></tr>');
+        outputTable.append('<tr><td><b>Customer Responsibility</b></td></tr>');
         outputTable.append(customerRespContent);
 
-        outputTable.append('<tr><td><h2>Out of Scope</h2></td></tr>');
+        outputTable.append('<tr><td><b>Out of Scope</b></td></tr>');
         outputTable.append(oosContent);
 
         outputElement.append(outputTable);
