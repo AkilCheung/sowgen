@@ -89,7 +89,7 @@ $(document).ready(() => {
             if (components[str].sowHeader != null) {
                 // sowContent = sowContent.concat('<p><strong>' + components[str].sowHeader + '</strong><br/>');
                 // sowContent += '<ul>';
-                sowContent = sowContent.concat('<tr><td style = "background-color:#dcdcdc;" colspan = "2"><b>' + components[str].sowHeader + '</b></td></tr>');
+                sowContent = sowContent.concat('<tr><td colspan = "2"><b>' + components[str].sowHeader + '</b></td></tr>');
                 components[str].sow.forEach(sowStr => {
                     sowContent = sowContent.concat('<tr><td></td><td>' + sowStr + '</td></tr>');
                 })
