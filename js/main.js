@@ -117,10 +117,10 @@ $(document).ready(() => {
         console.log($('#output table').length > 0)
 
         outputTable.append('<tr><td>Project working period: Monday to Friday, 0900-1800</td></tr><tr><td>AWS Region: Hong Kong</td></tr><tr><td>Tasks</td><td>Subtasks</td><td>Manday</td><td>Optional Manday</td><td>Cost (USD)</td><td>Cost (HKD)</td></tr>');
-        outputTable.append('<tr><td style = "background-color:#dcdcdc;" colspan = "2"><h2>SOW</h2></td></tr>');
+        outputTable.append('<tr></tr><tr><td colspan = "2"><h2>SOW</h2></td></tr>');
         outputTable.append(sowContent);
 
-        outputTable.append('<tr><td style = "background-color:#dcdcdc;" colspan = "2">Assumption</td></tr>');
+        outputTable.append('<tr></tr><tr><td colspan = "2">Assumption</td></tr>');
         outputTable.append(assumptionContent);
         //$('#output').append('<p>' + regionAssumption + assumptionContent + '</p>');
 
@@ -129,10 +129,10 @@ $(document).ready(() => {
         // obj.prepend(regionAssumption);
         outputTable.append(obj);
         
-        outputTable.append('<tr><td style = "background-color:#dcdcdc;" colspan = "2"><b>Customer Responsibility</b></td></tr>');
+        outputTable.append('<tr></tr><tr><td colspan = "2"><b>Customer Responsibility</b></td></tr>');
         outputTable.append(customerRespContent);
 
-        outputTable.append('<tr><td style = "background-color:#dcdcdc;" colspan = "2"><b>Out of Scope</b></td></tr>');
+        outputTable.append('<tr></tr><tr><td colspan = "2"><b>Out of Scope</b></td></tr>');
         outputTable.append(oosContent);
 
         outputElement.append(outputTable);
