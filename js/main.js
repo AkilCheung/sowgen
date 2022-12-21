@@ -132,7 +132,7 @@ $(document).ready(() => {
         outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Customer Responsibility</h2></b></td></tr>');
         outputTable.append(customerRespContent);
 
-        outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Out of Scope</b></h2></td></tr>');
+        outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Out of Scope</h2></b></td></tr>');
         outputTable.append(oosContent);
 
         outputElement.append(outputTable);
