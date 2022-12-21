@@ -41,7 +41,7 @@ $(document).ready(() => {
         console.log(selectedComponents);
 
         //generate the output
-        var assumptionContent = '<tr><td>Project working period: Monday to Friday, 0900-1800</td></tr><tr><td>AWS Region: Hong Kong</td></tr><tr><td>Tasks</td><td>Subtasks</td><td>Manday</td><td>Optional Manday</td><td>Cost (USD)</td><td>Cost (HKD)</td></tr>';
+        var assumptionContent = '';
         var sowContent = '';
         var customerRespContent = '';
         var oosContent = '';
@@ -116,7 +116,7 @@ $(document).ready(() => {
         const regionAssumption = '<li>' + $('#ddRegions').val() + ' region will be used </li>';
         console.log($('#output table').length > 0)
 
-
+        outputTable.append('<tr><td>Project working period: Monday to Friday, 0900-1800</td></tr><tr><td>AWS Region: Hong Kong</td></tr><tr><td>Tasks</td><td>Subtasks</td><td>Manday</td><td>Optional Manday</td><td>Cost (USD)</td><td>Cost (HKD)</td></tr>');
         outputTable.append('<tr><td><h2>SOW</h2></td></tr>');
         outputTable.append(sowContent);
 
