@@ -115,17 +115,20 @@ $(document).ready(() => {
         //region str
         const regionAssumption = '<li>' + $('#ddRegions').val() + ' region will be used </li>';
         console.log($('#output table').length > 0)
+
+
+        outputTable.append('<tr><td><h2>SOW</h2></td></tr>');
+        outputTable.append(sowContent);
+
         outputTable.append('<tr><td>Assumption</td></tr>');
+        outputTable.append(assumptionContent);
         //$('#output').append('<p>' + regionAssumption + assumptionContent + '</p>');
 
         var obj = $($.parseHTML(assumptionContent));
         console.log(obj)
         // obj.prepend(regionAssumption);
         outputTable.append(obj);
-
-        outputTable.append('<tr><td><h2>SOW</h2></td></tr>');
-        outputTable.append(sowContent);
-
+        
         outputTable.append('<tr><td><b>Customer Responsibility</b></td></tr>');
         outputTable.append(customerRespContent);
 
