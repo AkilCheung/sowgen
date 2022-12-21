@@ -120,7 +120,7 @@ $(document).ready(() => {
         outputTable.append('<tr></tr><tr><td colspan = "2"><h2>SOW</h2></td></tr>');
         outputTable.append(sowContent);
 
-        outputTable.append('<tr></tr><tr><td colspan = "2">Assumption</td></tr>');
+        outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Assumption</h2></b></td></tr>');
         outputTable.append(assumptionContent);
         //$('#output').append('<p>' + regionAssumption + assumptionContent + '</p>');
 
@@ -129,10 +129,10 @@ $(document).ready(() => {
         // obj.prepend(regionAssumption);
         outputTable.append(obj);
         
-        outputTable.append('<tr></tr><tr><td colspan = "2"><b>Customer Responsibility</b></td></tr>');
+        outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Customer Responsibility</h2></b></td></tr>');
         outputTable.append(customerRespContent);
 
-        outputTable.append('<tr></tr><tr><td colspan = "2"><b>Out of Scope</b></td></tr>');
+        outputTable.append('<tr><td></td></tr><tr><td colspan = "2"><b><h2>Out of Scope</b></h2></td></tr>');
         outputTable.append(oosContent);
 
         outputElement.append(outputTable);
