@@ -41,10 +41,10 @@ $(document).ready(() => {
         console.log(selectedComponents);
 
         //generate the output
-        var assumptionContent = '';
+        var assumptionContent = '<tr><td>Project working period: Monday to Friday, 0900-1800</td></tr><tr><td>AWS Region: Hong Kong</td></tr><tr><td>Tasks</td><td>Subtasks</td><td>Manday</td><td>Optional Manday</td><td>Cost (USD)</td><td>Cost (HKD)</td></tr>';
         var sowContent = '';
         var customerRespContent = '';
-        var oosContent = '<tr><td>Project working period: Monday to Friday, 0900-1800</td></tr><tr><td>AWS Region: Hong Kong</td></tr><tr><td>Tasks</td><td>Subtasks</td><td>Manday</td><td>Optional Manday</td><td>Cost (USD)</td><td>Cost (HKD)</td></tr>';
+        var oosContent = '';
         var outputElement = $('#output');
         var outputTable = $('#outputTable');
 
