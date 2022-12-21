@@ -91,7 +91,7 @@ $(document).ready(() => {
                 // sowContent += '<ul>';
                 sowContent = sowContent.concat('<tr><td><b>' + components[str].sowHeader + '</b></td></tr>');
                 components[str].sow.forEach(sowStr => {
-                    sowContent = sowContent.concat('<tr><td>' + sowStr + '</td></tr>');
+                    sowContent = sowContent.concat('<tr><td></td><td>' + sowStr + '</td></tr>');
                 })
                 // sowContent += '</ul>';
                 // sowContent = sowContent.concat('</p>');
